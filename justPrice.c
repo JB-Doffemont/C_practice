@@ -20,6 +20,6 @@ int main()
         }
     } while (price != justPrice);
     printf("Bravo ! C'est le juste prix\n");
-    // printf("Le prix est : %d\n", price);
+
     return 0;
 }

@@ -30,5 +30,3 @@ int main(int argc, char *argv[])
     }
     return 0;
 }
-
-// 2 % 7 = 2 ?
