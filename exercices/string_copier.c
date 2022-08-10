@@ -4,7 +4,7 @@
 
 void copy(char *dst, char *src)
 {
-
+    printf("%p", *dst);
     while (*src != '\0')
     {
         *dst = *src;
