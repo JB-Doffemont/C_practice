@@ -31,8 +31,9 @@ void add_days_to_date(int *mm, int *dd, int *yy, int days_left_to_add)
                 *yy = *yy + 1; // and we are in a new year so increase by 1
             }
             else
-
+            {
                 *mm = *mm + 1; // if some other month, just increase by 1
+            }
         }
         else // if all days can be added in this month
         {
@@ -55,7 +56,7 @@ int main()
 
     add_days_to_date(&mm, &dd, &yy, days_left_to_add);
 
-    printf("Le mois :%i le jour :%i l'annee :%i", mm, dd, yy);
+    printf("Le mois :%i le jour :%i l'annee :%i\n", mm, dd, yy);
 
     is_leap_year(yy);
 
