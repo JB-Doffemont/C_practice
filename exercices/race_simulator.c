@@ -57,14 +57,26 @@ int calculateTimeToComplete(void)
     return sum;
 }
 
+void updateRaceCar(struct RaceCar *raceCar)
+{
+    raceCar->totalLapTime = calculateTimeToComplete();
+
+    printf("totalLapTime : %d", raceCar->totalLapTime);
+}
+
 int main()
 {
 
     printIntro();
     printCountDown();
+
     struct Race race;
     printFirstPlaceAfterLap(race);
     printCongratulation(race);
+
+    struct RaceCar raceCar;
+    updateRaceCar(&raceCar);
+
     calculateTimeToComplete();
     srand(time(0));
 };
