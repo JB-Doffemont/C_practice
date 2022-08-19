@@ -79,6 +79,23 @@ void updateFirstPlace(struct Race *race, struct RaceCar *raceCar1, struct RaceCa
     }
 }
 
+void startRace(struct RaceCar *raceCar1, struct RaceCar *raceCar2)
+{
+    struct Race race = {5, 1, "", ""};
+
+    for (int i = 0; i < race.numberOfLaps; i++)
+    {
+        updateRaceCar(raceCar1);
+        updateRaceCar(raceCar2);
+
+        updateFirstPlace(&race, raceCar1, raceCar2);
+
+        printFirstPlaceAfterLap(race);
+    }
+
+    printCongratulation(race);
+}
+
 int main()
 {
 
@@ -87,7 +104,6 @@ int main()
 
     struct Race race;
     printFirstPlaceAfterLap(race);
-    printCongratulation(race);
 
     struct RaceCar raceCar;
     updateRaceCar(&raceCar);
