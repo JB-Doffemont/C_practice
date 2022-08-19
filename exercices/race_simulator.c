@@ -64,6 +64,21 @@ void updateRaceCar(struct RaceCar *raceCar)
     printf("totalLapTime : %d", raceCar->totalLapTime);
 }
 
+void updateFirstPlace(struct Race *race, struct RaceCar *raceCar1, struct RaceCar *raceCar2)
+{
+
+    if (raceCar1->totalLapTime <= raceCar2->totalLapTime)
+    {
+        race->firstPlaceRaceCarColor = raceCar1->driverName;
+        race->firstPlaceRaceCarColor = raceCar1->raceCarColor;
+    }
+    else
+    {
+        race->firstPlaceRaceCarColor = raceCar2->driverName;
+        race->firstPlaceRaceCarColor = raceCar2->raceCarColor;
+    }
+}
+
 int main()
 {
 
