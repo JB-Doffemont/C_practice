@@ -29,19 +29,19 @@ void printCountDown(void)
 
 void printFirstPlaceAfterLap(struct Race race)
 {
-    race.numberOfLaps = 2;
-    race.firstPlaceDriverName = "JB";
-    race.firstPlaceRaceCarColor = "Yellow";
+    race.currentLap;
+    race.firstPlaceDriverName;
+    race.firstPlaceRaceCarColor;
 
-    printf("After lap number %d\nFirst Place Is: %s in the %s car!\n", race.numberOfLaps, race.firstPlaceDriverName, race.firstPlaceRaceCarColor);
+    printf("After lap number %d\nFirst Place Is: %s in the %s car!\n", race.currentLap, race.firstPlaceDriverName, race.firstPlaceRaceCarColor);
 }
 
 void printCongratulation(struct Race race)
 {
-    race.firstPlaceDriverName = "Thomas";
-    race.firstPlaceRaceCarColor = "Red";
+    race.firstPlaceDriverName;
+    race.firstPlaceRaceCarColor;
 
-    printf("After final lap let's all congratulate %s in the %s race car for an amazing performance.\nIt truly was a great race and everybody have a goodnight!", race.firstPlaceDriverName, race.firstPlaceRaceCarColor);
+    printf("After final lap let's all congratulate %s in the %s race car for an amazing performance.\nIt truly was a great race and everybody have a goodnight!\n", race.firstPlaceDriverName, race.firstPlaceRaceCarColor);
 }
 
 // Logic functions section
@@ -60,8 +60,6 @@ int calculateTimeToComplete(void)
 void updateRaceCar(struct RaceCar *raceCar)
 {
     raceCar->totalLapTime = calculateTimeToComplete();
-
-    printf("totalLapTime : %d", raceCar->totalLapTime);
 }
 
 void updateFirstPlace(struct Race *race, struct RaceCar *raceCar1, struct RaceCar *raceCar2)
@@ -69,22 +67,23 @@ void updateFirstPlace(struct Race *race, struct RaceCar *raceCar1, struct RaceCa
 
     if (raceCar1->totalLapTime <= raceCar2->totalLapTime)
     {
-        race->firstPlaceRaceCarColor = raceCar1->driverName;
+        race->firstPlaceDriverName = raceCar1->driverName;
         race->firstPlaceRaceCarColor = raceCar1->raceCarColor;
     }
     else
     {
-        race->firstPlaceRaceCarColor = raceCar2->driverName;
+        race->firstPlaceDriverName = raceCar2->driverName;
         race->firstPlaceRaceCarColor = raceCar2->raceCarColor;
     }
 }
 
 void startRace(struct RaceCar *raceCar1, struct RaceCar *raceCar2)
 {
-    struct Race race = {5, 1, "", ""};
+    struct Race race = {5, 0, "", ""};
 
-    for (int i = 0; i < race.numberOfLaps; i++)
+    for (int i = 0; i <= race.numberOfLaps; i++)
     {
+        race.currentLap++;
         updateRaceCar(raceCar1);
         updateRaceCar(raceCar2);
 
@@ -99,15 +98,13 @@ void startRace(struct RaceCar *raceCar1, struct RaceCar *raceCar2)
 int main()
 {
 
+    struct RaceCar raceCar1 = {"JB", "Red"};
+    struct RaceCar raceCar2 = {"Jerome", "Blue"};
+
     printIntro();
     printCountDown();
 
-    struct Race race;
-    printFirstPlaceAfterLap(race);
-
-    struct RaceCar raceCar;
-    updateRaceCar(&raceCar);
+    startRace(&raceCar1, &raceCar2);
 
     calculateTimeToComplete();
-    srand(time(0));
 };
