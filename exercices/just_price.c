@@ -31,20 +31,24 @@ int main()
 
         printf("Bravo ! C'est le juste prix\n Vous avez trouve en %d tentatives !\n", try);
 
+        // on reinitialise le compteur
+        try = 0;
+
         printf("Souhaitez-vous faire une autre partie ? o/n\n");
         scanf("%s", answer);
 
-        printf(answer);
-
+        // strcmp permet de comparer deux chaines
         if (strcmp(answer, "o") == 0)
         {
-            printf("oui");
             continue_party = 1;
         }
         else if (strcmp(answer, "n") == 0)
         {
-            printf("non");
             continue_party = 0;
+        }
+        else
+        {
+            printf("Saisie incorrect");
         }
     }
 
