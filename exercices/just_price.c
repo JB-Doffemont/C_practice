@@ -1,9 +1,10 @@
 #include <stdio.h>
+#include <string.h>
 
 int main()
 {
     int price;
-    char answer;
+    char answer[100];
     int justPrice = 15;
     int try = 0;
     int continue_party = 1;
@@ -31,16 +32,20 @@ int main()
         printf("Bravo ! C'est le juste prix\n Vous avez trouve en %d tentatives !\n", try);
 
         printf("Souhaitez-vous faire une autre partie ? o/n\n");
-        scanf("%d", &answer);
-    }
+        scanf("%s", answer);
 
-    if (&answer == "o")
-    {
-        continue_party = 1;
-    }
-    else if (&answer == "n")
-    {
-        continue_party = 0;
+        printf(answer);
+
+        if (strcmp(answer, "o") == 0)
+        {
+            printf("oui");
+            continue_party = 1;
+        }
+        else if (strcmp(answer, "n") == 0)
+        {
+            printf("non");
+            continue_party = 0;
+        }
     }
 
     return 0;
