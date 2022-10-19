@@ -88,7 +88,7 @@ int main()
         }
         else
         {
-            printf("Saisie incorrect");
+            printf("Saisie incorrect\n Retour menu principal\n");
         }
     }
 
