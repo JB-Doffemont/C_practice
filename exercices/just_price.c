@@ -1,16 +1,35 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
 int main()
 {
     int price;
     char answer[100];
-    int justPrice = 15;
+    int justPrice;
     int try = 0;
+    int choicePlayer;
     int continue_party = 1;
+    const int MAX = 100, MIN = 1;
 
     while (continue_party == 1)
     {
+        printf("=== Menu ===\n");
+        printf("1. Un Joueur\n");
+        printf("2. Deux Joueurs\n");
+        scanf("%d", &choicePlayer);
+
+        if (choicePlayer == 1)
+        {
+            srand(time(NULL));
+            justPrice = (rand() % (MAX - MIN + 1)) + MIN;
+        }
+        else
+        {
+            printf("Veuillez saisir le nombre mystere :\n");
+            scanf("%d", &justPrice);
+        }
 
         do
         {
