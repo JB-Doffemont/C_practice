@@ -10,8 +10,10 @@ int main()
     int justPrice;
     int try = 0;
     int choicePlayer;
+    int choiceDifficulty;
     int continue_party = 1;
-    const int MAX = 100, MIN = 1;
+    const int MIN = 1;
+    int MAX;
 
     while (continue_party == 1)
     {
@@ -19,6 +21,25 @@ int main()
         printf("1. Un Joueur\n");
         printf("2. Deux Joueurs\n");
         scanf("%d", &choicePlayer);
+
+        printf("=== Choix de difficulté ===\n");
+        printf("1. Facile entre 1 et 100\n");
+        printf("2. Moyen entre 1 et 1000\n");
+        printf("3. Difficile entre 1 et 10000\n");
+        scanf("%d", &choiceDifficulty);
+
+        if (choiceDifficulty == 1)
+        {
+            MAX = 100;
+        }
+        else if (choiceDifficulty == 2)
+        {
+            MAX = 1000;
+        }
+        else
+        {
+            MAX = 10000;
+        }
 
         if (choicePlayer == 1)
         {
