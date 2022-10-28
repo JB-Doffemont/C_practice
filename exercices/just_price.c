@@ -22,7 +22,7 @@ int main()
         printf("2. Deux Joueurs\n");
         scanf("%d", &choicePlayer);
 
-        printf("=== Choix de difficulté ===\n");
+        printf("=== Choix de difficulte ===\n");
         printf("1. Facile entre 1 et 100\n");
         printf("2. Moyen entre 1 et 1000\n");
         printf("3. Difficile entre 1 et 10000\n");
