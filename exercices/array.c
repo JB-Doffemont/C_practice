@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 int sumArray(int array[], int sizeArray);
+int averageValueArray(int array[], int sizeArray);
 
 int main(int argc, char *argv[])
 {
@@ -22,6 +23,7 @@ int main(int argc, char *argv[])
     printf("Somme premier tableau : %i\n", sum);
 
     sumArray(array, 10);
+    averageValueArray(array, 10);
 
     return 0;
 }
@@ -37,4 +39,21 @@ int sumArray(int array[], int sizeArray)
     }
 
     return printf("Somme second tableau : %d\n", sum);
+}
+
+int averageValueArray(int array[], int sizeArray)
+{
+
+    int i = 0;
+    int sum = 0;
+    int average = 0;
+
+    for (i = 0; i < sizeArray; i++)
+    {
+
+        sum = sum + array[i];
+        average = sum / sizeArray;
+    }
+
+    return printf("La moyenne du tableau est de : %d\n", average);
 }
