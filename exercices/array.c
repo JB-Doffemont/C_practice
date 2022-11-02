@@ -2,10 +2,12 @@
 
 int sumArray(int array[], int sizeArray);
 int averageValueArray(int array[], int sizeArray);
+void copy(int array[], int copyArray[], int sizeArray);
 
 int main(int argc, char *argv[])
 {
     int array[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    int copyArray[10];
     int matrix[][4] = {{14, 10, 6, 4}, {3, 7, 18, 11}, {13, 9, 5, 17}, {19, 12, 2, 1}};
     int sum = 0;
 
@@ -24,6 +26,7 @@ int main(int argc, char *argv[])
 
     sumArray(array, 10);
     averageValueArray(array, 10);
+    copy(array, copyArray, 10);
 
     return 0;
 }
@@ -56,4 +59,19 @@ int averageValueArray(int array[], int sizeArray)
     }
 
     return printf("La moyenne du tableau est de : %d\n", average);
+}
+
+void copy(int array[], int copyArray[], int sizeArray)
+{
+
+    for (int i = 0; i < sizeArray; i++)
+    {
+        copyArray[i] = array[i];
+    }
+    printf("Array -> Copy\n");
+
+    for (int y = 0; y < 10; y++)
+    {
+        printf("%2d         %2d\n", array[y], copyArray[y]);
+    }
 }
