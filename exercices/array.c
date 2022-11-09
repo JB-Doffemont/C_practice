@@ -1,8 +1,5 @@
 #include <stdio.h>
-
-int sumArray(int array[], int sizeArray);
-int averageValueArray(int array[], int sizeArray);
-void copy(int array[], int copyArray[], int sizeArray);
+#include "array.h"
 
 int main(int argc, char *argv[])
 {
@@ -27,6 +24,7 @@ int main(int argc, char *argv[])
     sumArray(array, 10);
     averageValueArray(array, 10);
     copy(array, copyArray, 10);
+    maxArray(array, 10, 5);
 
     return 0;
 }
@@ -73,5 +71,22 @@ void copy(int array[], int copyArray[], int sizeArray)
     for (int y = 0; y < 10; y++)
     {
         printf("%2d         %2d\n", array[y], copyArray[y]);
+    }
+}
+
+void maxArray(int array[], int sizeArray, int maxValue)
+{
+
+    for (int i = 0; i < sizeArray; i++)
+    {
+
+        if (array[i] > maxValue)
+        {
+            array[i] = 0;
+        }
+    }
+    for (int y = 0; y < 10; y++)
+    {
+        printf("%2d\n", array[y]);
     }
 }
