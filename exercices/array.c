@@ -3,7 +3,7 @@
 
 int main(int argc, char *argv[])
 {
-    int array[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    int array[10] = {1, 2, 4, 8, 5, 3, 7, 6, 9, 10};
     int copyArray[10];
     int matrix[][4] = {{14, 10, 6, 4}, {3, 7, 18, 11}, {13, 9, 5, 17}, {19, 12, 2, 1}};
     int sum = 0;
@@ -24,7 +24,8 @@ int main(int argc, char *argv[])
     sumArray(array, 10);
     averageValueArray(array, 10);
     copy(array, copyArray, 10);
-    maxArray(array, 10, 5);
+    // maxArray(array, 10, 5);
+    rankArray(array, 10);
 
     return 0;
 }
@@ -74,19 +75,41 @@ void copy(int array[], int copyArray[], int sizeArray)
     }
 }
 
-void maxArray(int array[], int sizeArray, int maxValue)
+// void maxArray(int array[], int sizeArray, int maxValue)
+// {
+
+//     for (int i = 0; i < sizeArray; i++)
+//     {
+
+//         if (array[i] > maxValue)
+//         {
+//             array[i] = 0;
+//         }
+//     }
+//     for (int y = 0; y < 10; y++)
+//     {
+//         printf("%2d\n", array[y]);
+//     }
+// }
+
+void rankArray(int array[], int sizeArray)
 {
-
-    for (int i = 0; i < sizeArray; i++)
+    int c;
+    for (int i = 0; i < sizeArray - 1; i++)
     {
-
-        if (array[i] > maxValue)
+        for (int y = i + 1; y < sizeArray; y++)
         {
-            array[i] = 0;
+            if (array[i] > array[y])
+            {
+                // J'utilise une variable pour effectuer la permutation
+                c = array[i];
+                array[i] = array[y];
+                array[y] = c;
+            }
         }
     }
-    for (int y = 0; y < 10; y++)
+    for (int i = 0; i < 10; i++)
     {
-        printf("%2d\n", array[y]);
+        printf("%2d\n", array[i]);
     }
 }
