@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
     sumArray(array, 10);
     averageValueArray(array, 10);
     copy(array, copyArray, 10);
-    // maxArray(array, 10, 5);
+    maxArray(array, 10, 5);
     rankArray(array, 10);
 
     return 0;
@@ -75,22 +75,22 @@ void copy(int array[], int copyArray[], int sizeArray)
     }
 }
 
-// void maxArray(int array[], int sizeArray, int maxValue)
-// {
+void maxArray(int array[], int sizeArray, int maxValue)
+{
 
-//     for (int i = 0; i < sizeArray; i++)
-//     {
+    for (int i = 0; i < sizeArray; i++)
+    {
 
-//         if (array[i] > maxValue)
-//         {
-//             array[i] = 0;
-//         }
-//     }
-//     for (int y = 0; y < 10; y++)
-//     {
-//         printf("%2d\n", array[y]);
-//     }
-// }
+        if (array[i] > maxValue)
+        {
+            array[i] = 0;
+        }
+    }
+    for (int y = 0; y < 10; y++)
+    {
+        printf("%2d\n", array[y]);
+    }
+}
 
 void rankArray(int array[], int sizeArray)
 {
