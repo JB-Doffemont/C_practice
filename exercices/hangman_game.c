@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
     char secret_word[7] = "MARRON";
     int number_try = 10;
 
-    display_greetings(secret_word, number_try);
+    main_logic(secret_word, number_try);
 
     return 0;
 }
@@ -45,13 +45,15 @@ void main_logic(char secret_word[], int number_try)
             {
                 secret_word_hide[i] = my_letter;
             }
-            else if (secret_word[i] != my_letter)
-            {
-                printf("La lettre n'est pas dans le mot !");
-                number_try--;
-            }
         }
-    } while (secret_word != secret_word_hide);
+
+        if (!strchr(secret_word, my_letter))
+        {
+            printf("La lettre n'est pas dans le mot !\n");
+            number_try--;
+        }
+
+    } while (secret_word != secret_word_hide && number_try != 0);
 };
 
 char read_character()
