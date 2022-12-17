@@ -53,7 +53,20 @@ void main_logic(char secret_word[], int number_try)
             number_try--;
         }
 
-    } while (secret_word != secret_word_hide && number_try != 0);
+        printf("Mot secret :%s  Mot deviné :%s\n", secret_word, secret_word_hide);
+
+        // Je compare les deux chaînes de caractères avec strcmp +
+    } while (strcmp(secret_word_hide, secret_word) != 0 && number_try != 0);
+
+    if (strcmp(secret_word_hide, secret_word) == 0)
+    {
+        printf("Vous avez deviné le mot bravo !");
+    }
+
+    if (number_try == 0)
+    {
+        printf("Vous n'avez plus de tentative, c'est perdu !");
+    }
 };
 
 char read_character()
